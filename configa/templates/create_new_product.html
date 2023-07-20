@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>{% for i in produto %}
-    {{i.nomeProduto}} - R${{i.precoProduto}}
-    {% endfor %}</ul>
-    <button><a href="admin/">ADMIN</a></button>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
 </body>
 </html>
