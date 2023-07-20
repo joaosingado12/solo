@@ -7,8 +7,8 @@
 </head>
 <body>
     <ul>{% for i in produto %}
-    {{i.nomeProduto}} - R${{i.precoProduto}}
+    <li>{{i.nomeProduto}} - R${{i.precoProduto}}</li>
     {% endfor %}</ul>
-    <button><a href="admin/">ADMIN</a></button>
+    <button><a href="admin/">ADMIN</a></button> - <button><a href="create/">Adicionar Produto</a></button>
 </body>
 </html>

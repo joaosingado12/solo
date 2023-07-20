@@ -20,6 +20,6 @@ from configa.views import home, novo_produto
 
 urlpatterns = [
     path("admin/", admin.site.urls, name='url_admin'),
-    path("", home),
-    path("create/", novo_produto)
+    path("", home, name='url_home'),
+    path("create/", novo_produto, name='url_create')
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Produto
 from .form import ProdutoForm 
 
@@ -12,6 +12,9 @@ def home(request):
 
 def novo_produto(request):
     dados = {}
-    form = ProdutoForm
+    form = ProdutoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('url_home')
     dados['form'] = form
     return render(request, 'create_new_product.html', dados)
