@@ -28,3 +28,8 @@ def update(request, pk):
         return redirect('url_home')
     dados['form'] = form
     return render(request, 'form.html', dados)
+
+def delete(request, pk):
+    produto = Produto.objects.get(pk=pk)
+    produto.delete()
+    return redirect("url_home")
