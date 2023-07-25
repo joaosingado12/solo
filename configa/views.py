@@ -18,3 +18,13 @@ def novo_produto(request):
         return redirect('url_home')
     dados['form'] = form
     return render(request, 'create_new_product.html', dados)
+
+def update(request, pk):
+    dados = {}
+    produto = Produto.objects.get(pk=pk)
+    form = ProdutoForm(request.POST or None, instance=produto)
+    if form.is_valid():
+        form.save()
+        return redirect('url_home')
+    dados['form'] = form
+    return render(request, "home.html", dados)
