@@ -23,5 +23,5 @@ urlpatterns = [
     path("", home, name='url_home'),
     path("create/", novo_produto, name='url_create'),
     path("update/<int:pk>/", update, name='url_update'),
-    path("delete/<int:pk>/", delete, name= 'url_delete'),
+    path("delete/<int:pk>/", delete, name='url_delete')
 ]
