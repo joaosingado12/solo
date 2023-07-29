@@ -17,4 +17,20 @@ def novo_produto(request):
         form.save()
         return redirect('url_home')
     dados['form'] = form
-    return render(request, 'create_new_product.html', dados)
+    return render(request, 'form.html', dados)
+
+def update(request, pk):
+    dados = {}
+    produto = Produto.objects.get(pk=pk)
+    form = ProdutoForm(request.POST or None, instance=produto)
+    if form.is_valid():
+        form.save()
+        return redirect('url_home')
+    dados['form'] = form
+    return render(request, 'form.html', dados)
+
+
+def delete(request, pk):
+    produto = Produto.objects.get(pk=pk)
+    produto.delete()
+    return redirect("form.html")
