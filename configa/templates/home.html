@@ -7,6 +7,9 @@
 </head>
 <body>
     <ul>{% for i in produto %}
+
+    <li>{{i.nomeProduto}} - R${{i.precoProduto}} - {{i.categoriaProduto}}</li>
+
     <li>{{i.nomeProduto}} - R${{i.precoProduto}} <button><a href="{% url 'url_update' i.id %}">Editar</a></button></li>
     {% endfor %}</ul>
     <button><a href="admin/">ADMIN</a></button> - <button><a href="create/">Adicionar Produto</a></button>
